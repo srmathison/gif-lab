@@ -1,83 +1,57 @@
-var showMeStuff = [];
-// var textHolder;
 $(document).ready(function() {
-var Playback = {
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+
+  var Playback = {
     //store the time an action occured and the resulting state in an object
     //don't use an array because they are not sparce - interstitial keys
     //will have to be iterated over
-    record: {},
+    record: [],
     init: function( recorderId, playbackId ) {
-        this.recorder = document.getElementById( recorderId );
-        this.playback = document.getElementById( playbackId );
+      this.recorder = document.getElementById( recorderId );
+      this.playback = document.getElementById( playbackId );
 
-        this.recorder.addEventListener( 'focus', function() {
-            Playback.record = {};
-            this.value = '';
-        }, false );
-        
-        this.recorder.addEventListener( 'keyup', function( e ) {
-            Playback.record[ (new Date()).getTime() ] = this.value;
-            var chr = String.fromCharCode(e.keyCode)
-            showMeStuff.push(chr);
-            myFunction();
-            // textHolder = this.value;
-        }, false );
+      this.recorder.addEventListener( 'focus', function() {
+        Playback.record = [];
+        this.value = '';
+      }, false );
 
-        this.recorder.addEventListener( 'blur', function( e ) {
-            Playback.playback.value = '';
-            //store the time the sequence started
-            //so that we can subtract it from subsequent actions
-            var mark = null;
-            for( var t in  Playback.record ) {
-                if( mark ) {
-                    var timeout = t - mark;
-                } else {
-                    var timeout = 0;
-                    mark = t;
-                }
-                // We need to create a callback which closes over the value of t
-                // because t would have changed by the time this is run
-                setTimeout( Playback.changeValueCallback( Playback.record[t] ), timeout );
-            }
-        }, false ); 
-    },
+      this.recorder.addEventListener( 'keyup', function( e ) {
 
-    changeValueCallback: function( val ) {
-        return function() { Playback.playback.value = val }
+        logEntry = {time: (new Date()).getTime(),
+          val: this.value };
+
+        Playback.record.push(logEntry);
+      }, false );
     }
-    
-}
+  }
+
 
 function myFunction () {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.font = "15px Arial";
-    ctx.save();
+  ctx.font = "30px Arial";
+  ctx.save();
+  start = _.first(Playback.record).time;
+
+  newLog = _.map(Playback.record, function(logEntry) {
+    return { delay: logEntry.time - start,
+             val: logEntry.val }
+  });
+
+  _.each(newLog, function(logEntry) {
+    setTimeout(frame(logEntry.val), logEntry.delay)
+  });
+}
+
+function frame(val){
+  return function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    console.log(Playback.record);
-    ctx.fillText(showMeStuff.join(''), 0, 10);
+    ctx.fillText(val, 10, 50);
+  }
 }
 
 Playback.init( 'recorder', 'playback' );
+
+$('#playback').click(myFunction);
+
 });
 
-
-
-
-
-// function myFunction() {
-//         var x = document.getElementById("recorder").value;
-//         document.getElementById("mycanvas").innerHTML = x;
-//         var canvas = document.getElementById("mycanvas");
-//         var ctx = canvas.getContext("2d");
-//         ctx.font = "30px Arial";
-//         ctx.fillText("##",10,50);
-//         var img = canvas.toDataURL("image/png");
-//         document.write('<img src="'+img+'"/>');
-        
-//     }
-//
-
-/* then use the canvas 2D drawing functions to add text, etc. for the result */
-
-// window.open('', document.getElementById("recorder").toDataURL());

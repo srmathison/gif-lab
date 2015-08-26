@@ -3,7 +3,7 @@ def command(string, i)
  # three quotes creates a multi line string
  """
     convert -background black -fill white \
-         -size 500x500 -pointsize 72 -gravity center label:\"#{string.gsub(' ',"\n")}\"\
+         -size 500x500 -pointsize 72 -gravity north label:\"#{string.gsub(' ',"\n")}\"\
          image_#{i}.gif
  """
 

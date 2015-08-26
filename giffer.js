@@ -1,39 +1,48 @@
 
 
-// $(document).ready(function(){
+$(document).ready(function(){
+  $('#myText').on("keyup", function(e){
+    myFunction(e);
+    myOtherFunction();
+  });
+});
 
-function myFunction() {
-    console.log("You pressed a key inside the input field");
-    
-    // step 1. user inputs first character for userInput in myText
+function myFunction(e) {
     var userInput = document.getElementById("myText").value;
-
-    // step 2. on key press grab getElementById to display on canvas
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
-    context.font = "15px Arial";
-    context.fillText(userInput, 0, 10);
+    context.font = "30px Arial";
+    var lineHeight = 50;
+    if( e.keyCode == '13' ){
+        console.log("enter key pressed");
+        context.fillText(userInput, 0, lineHeight+=50);
+    } else {
+        context.fillText(userInput, 0, lineHeight);
+    }
+    var image = canvas.toDataURL("image/png");
+    console.log('<img src="'+image+'"/>');
   };
 
-// });
+function myOtherFunction() {
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);   
+}
 
 
 
 
 
 
-// step 3. after each key press a snapshot is taken of div
-// var image = canvas.toDataURL("image/png");
+
+
+
+
    
 
 
-// other helpful info
-    // When the user clicks "Capture", do this:
-    // window.open('', document.getElementById('the_canvas_element_id').toDataURL());
 
 
-    // with the value in IMG you can write it out as a new Image like so:
-    // document.write('<img src="'+img+'"/>');
 
 
 

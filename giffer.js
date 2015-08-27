@@ -1,38 +1,44 @@
-
+var myArray = [];
 
 $(document).ready(function(){
   $('#myText').on("keyup", function(e){
-    myFunction(e);
+    myFunction();
     myOtherFunction();
   });
 });
 
-function myFunction(e) {
+function myFunction() {
     var userInput = document.getElementById("myText").value;
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     context.font = "30px Arial";
-    var lineHeight = 50;
-    if( e.keyCode == '13' ){
-        console.log("enter key pressed");
-        context.fillText(userInput, 0, lineHeight+=50);
-    } else {
-        context.fillText(userInput, 0, lineHeight);
-    }
+    // context.fillText(userInput, 50, 100);
+    CanvasTextWrapper(canvas, userInput, {
+        verticalAlign: "bottom",
+        allowNewLine: true,
+        lineHeight: "100%",
+        paddingX: 20,
+        paddingY: 20,
+        });
     var image = canvas.toDataURL("image/png");
-    console.log('<img src="'+image+'"/>');
+    // console.log('<img src="'+image+'"/>');
+
+    myArray.push(image);
+    console.log(myArray);
+    
   };
 
 function myOtherFunction() {
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);   
-}
+};
 
-
-
-
-
+function submit() {
+    $.post( "http://localhost:9292/gif", {data: myArray}, function( data ) {
+        $( ".result" ).html( data );
+        });
+};
 
 
 

@@ -7,14 +7,17 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
   
   <script type="text/javascript" src="giffer.js"></script>
+  <script type="text/javascript" src="CanvasTextWrapper.min.js"></script>
+  <!-- // <script src='gifshot.js'></script> -->
   
   
 </head>
 <body>
 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas> 
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid black;"></canvas> 
   
-<textarea id="myText"type="text" onkeypress="myFunction()"></textarea>
-
+<textarea id="myText" type="text"></textarea>
+<button id="submit-gif" onclick="submit()">Gif it to me</button>
+<div class='result'></div>
 </body>
 </html>

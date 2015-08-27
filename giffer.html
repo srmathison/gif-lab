@@ -9,15 +9,21 @@
   <script type="text/javascript" src="giffer.js"></script>
   <script type="text/javascript" src="CanvasTextWrapper.min.js"></script>
   <!-- // <script src='gifshot.js'></script> -->
+  <link rel="stylesheet" type="text/css" href="giffer.css">
   
   
 </head>
 <body>
 
-<canvas id="myCanvas" width="300" height="300" style="border:1px solid black;"></canvas> 
-  
-<textarea id="myText" type="text"></textarea>
-<button id="submit-gif" onclick="submit()">Gif it to me</button>
+<canvas id="myCanvas" width="300" height="300"></canvas> 
+
+<div id="text-holder">  
+    <textarea id="myText" type="text"></textarea>
+    <button id="submit-gif" onclick="submit()">Gif it to me</button>
+</div>
+
 <div class='result'></div>
+<canvas id="bitmap"></canvas>
+
 </body>
 </html>

@@ -7,6 +7,7 @@ $(document).ready(function() {
     //don't use an array because they are not sparce - interstitial keys
     //will have to be iterated over
     record: [],
+    returns: [],
     init: function( recorderId, playbackId ) {
       this.recorder = document.getElementById( recorderId );
       this.playback = document.getElementById( playbackId );
@@ -18,6 +19,9 @@ $(document).ready(function() {
 
       this.recorder.addEventListener( 'keyup', function( e ) {
 
+        if (e.which == 13){
+          Playback.returns.push(this.value.length - 1);
+        }
         logEntry = {time: (new Date()).getTime(),
           val: this.value };
 
@@ -28,7 +32,7 @@ $(document).ready(function() {
 
 
 function myFunction () {
-  ctx.font = "30px Arial";
+  ctx.font = "24px Arial";
   ctx.save();
   start = _.first(Playback.record).time;
 
@@ -44,8 +48,16 @@ function myFunction () {
 
 function frame(val){
   return function() {
+    console.log(Playback.returns[0])
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText(val, 10, 50);
+    if (val.length > Playback.returns[0]){
+      v1 = val.slice(0, Playback.returns[0])
+      v2 = val.slice(Playback.returns[0], val.length);
+      ctx.fillText(v1, 10, 50);
+      ctx.fillText(v2.trim(), 10, 80);
+    } else {
+      ctx.fillText(val, 10, 50);
+    }
   }
 }
 

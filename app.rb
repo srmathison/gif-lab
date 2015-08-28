@@ -15,7 +15,7 @@ post '/gif' do
   end
 
 
-  `convert -delay 25 -loop 0 -gravity north images/test?.png images/test??.png  public/animation.gif`
+  `convert -delay 1 -loop 0 -gravity north images/test?.png images/test??.png  public/animation.gif`
   `rm images/*`
 
   "http://localhost:9292/animation.gif"

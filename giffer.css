@@ -1,0 +1,23 @@
+body {
+  height: 1000px;
+  background-color: black;
+}
+#text-holder {
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  display: inline;
+  /*border: 2px solid black;*/
+}
+
+#myText {
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+}
+
+
+
+.result {
+  margin: 0 auto;
+}

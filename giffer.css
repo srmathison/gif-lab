@@ -1,13 +1,26 @@
 body {
-  height: 1000px;
-  background-color: black;
+  height: 1200px;
+
+  background-color: #191919;
 }
+
+#myCanvas {
+  display: block;
+}
+
+#wrapper {
+  margin: 0 auto;
+  height: 800px;
+  width: 900px;
+}
+
 #text-holder {
   margin: 0 auto;
   height: 300px;
   width: 300px;
-  display: inline;
-  /*border: 2px solid black;*/
+  float: left;
+  padding: 20px;
+  border: 3px solid #04dbac;
 }
 
 #myText {
@@ -16,8 +29,71 @@ body {
   width: 300px;
 }
 
-
-
-.result {
+#gif {
+  height: 400px;
+  width: 400px;
   margin: 0 auto;
+  float: left;
+  padding: 20px;
+  border: 3px solid #3454d1;
+  margin-left : 20px;
+
 }
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #f865b0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 65px;
+}
+
+/*pink/purple kit
+
+#d2f1e4
+rgb(210, 241, 228)
+
+#fbcaef
+rgb(251, 202, 239)
+
+#f865b0
+rgb(248, 101, 176)
+
+#e637bf
+rgb(230, 55, 191)
+
+#48304d
+rgb(72, 48, 77)
+
+*/
+
+/*blue/green/gray kit
+
+#04dbac
+#3454d1
+#191919
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

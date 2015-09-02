@@ -2,7 +2,7 @@ require 'sinatra'
 require "base64"
 
 get '/' do 
-  "hello world"
+  erb :giffer
 end
 
 post '/gif' do
@@ -14,8 +14,8 @@ post '/gif' do
     end
   end
 
-
-  `convert -delay 1 -loop 0 -gravity north images/test?.png images/test??.png  public/animation.gif`
+  `rm public/*.gif`
+  `convert -delay 20 -loop 0 -gravity north images/test?.png images/test??.png images/test???.png  public/animation.gif`
   `rm images/*`
 
   "http://localhost:9292/animation.gif"

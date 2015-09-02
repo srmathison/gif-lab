@@ -18,6 +18,6 @@ post '/gif' do
   `convert -delay 20 -loop 0 -gravity north images/test?.png images/test??.png images/test???.png  public/animation.gif`
   `rm images/*`
 
-  "http://localhost:9292/animation.gif"
+  "https://morning-lake-5623.herokuapp.com/animation.gif"
 
 end

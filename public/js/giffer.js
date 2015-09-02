@@ -38,7 +38,7 @@ function myOtherFunction() {
 };
 
 function submit() {
-    $.post( "http://localhost:9292/gif", {data: myArray}, function( data ) {
+    $.post( "https://morning-lake-5623.herokuapp.com/gif", {data: myArray}, function( data ) {
         //debugger
         $( ".result" ).html( "<img src='" + data + "'>" );
         });

@@ -6,6 +6,7 @@ GEM
     rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
+    rmagick (2.15.4)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -18,6 +19,7 @@ PLATFORMS
 DEPENDENCIES
   mini_magick
   rack-cors
+  rmagick
   sinatra
 
 BUNDLED WITH

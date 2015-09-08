@@ -39,9 +39,9 @@ function myOtherFunction() {
 
 function submit() {
     $.post( "https://morning-lake-5623.herokuapp.com/gif", {data: myArray}, function( data ) {
-        //debugger
-        $( ".result" ).html( "<img src='" + data + "'>" );
-        });
+         //debugger
+         $( ".result" ).html( "<img src='" + data + "'>" );
+         });
 };
 
 

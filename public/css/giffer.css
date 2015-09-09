@@ -1,7 +1,6 @@
 body {
   height: 1200px;
-
-  background-color: #191919;
+  background-color: rgb(21, 21, 21);
 }
 
 #myCanvas {
@@ -11,7 +10,17 @@ body {
 #wrapper {
   margin: 0 auto;
   height: 800px;
-  width: 900px;
+  width: 1078px;
+}
+
+#preview {
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  float: left;
+  padding: 20px;
+  border: 3px solid #48304d;
+  margin-right: 20px;
 }
 
 #text-holder {
@@ -30,8 +39,8 @@ body {
 }
 
 #gif {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   margin: 0 auto;
   float: left;
   padding: 20px;
@@ -46,9 +55,39 @@ header {
 
 h1 {
   color: #f865b0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 65px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 48px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 0;
+  font-weight: 100;
+  
 }
+
+h2 {
+  color: #d2f1e4;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: 100;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*pink/purple kit
 

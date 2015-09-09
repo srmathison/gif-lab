@@ -21,19 +21,28 @@
       <h1>
         gif lab
       </h1>
+      <h2>
+        a typing gif generator
+      </h2>
+
   </header>
 
   <div id="wrapper">
-    <div id="text-holder">  
+    <div id="preview">
+        <img src="hello2world.gif" alt="HTML5 Icon"> 
+    </div>
+    <div id="text-holder"> 
         <textarea id="myText" type="text"></textarea>
         <button id="submit-gif" onclick="submit()">Gif it to me</button>
+        <button id="new-gif" onclick="gifRefresh()">start over</button>
     </div>
     <div id="gif">
         <div class='result'></div>
+
     </div>
   </div>
 
-  <canvas id="myCanvas" width="400" height="400"></canvas> 
+  <canvas id="myCanvas" width="300" height="300"></canvas> 
 
 
 </body>

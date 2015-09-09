@@ -44,6 +44,10 @@ function submit() {
         });
 };
 
+function gifRefresh() {
+   window.location.reload();
+}
+
 
 
 

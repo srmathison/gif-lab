@@ -3,16 +3,19 @@ body {
   background-color: #ccccc;
 }
 
+/*invisible canvas*/
 #myCanvas {
   display: block;
 }
 
+/*holds boxes*/
 #wrapper {
   margin: 0 auto;
   height: 800px;
   width: 1078px;
 }
 
+/*preview helloworld gif*/
 #preview {
   margin: 0 auto;
   height: 300px;
@@ -23,6 +26,7 @@ body {
   margin-right: 20px;
 }
 
+/*button styling*/
 button.btn {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -46,6 +50,41 @@ button.btn {
   color: #191919;
   cursor: pointer;
 
+}
+
+/*loading styling*/
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -60px 0 0 -60px;
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 10px solid #f865b0;
+}
+.loading:after {
+  content: '';
+  background: trasparent;
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  border-radius: 100%;
+  top: -20%;
+  left: -20%;
+  opacity: 0.7;
+  box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 #text-holder {

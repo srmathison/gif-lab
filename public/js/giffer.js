@@ -18,7 +18,7 @@ function myFunction() {
     context.fillStyle = "black";
     context.fillRect(0,0,canvas.width, canvas.height); //GIF can't do transparent so do white
     context.fillStyle = "white";
-    context.fillText(userInput, 50, 100);
+    // context.fillText(userInput, 50, 100);
     CanvasTextWrapper(canvas, userInput, {
         verticalAlign: "top",
         allowNewLine: true,
